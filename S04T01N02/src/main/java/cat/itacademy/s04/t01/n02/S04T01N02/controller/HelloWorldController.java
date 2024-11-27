@@ -15,9 +15,7 @@ public class HelloWorldController {
 
     @GetMapping({"/HelloWorld2", "/HelloWorld2/{name}"})
     public String sayHello2(@PathVariable(required = false) String name){
-        if (name == null){
-            name = "UNKNONW";
-        }
+        name = (name == null) ? "UNKNONW" : name;
         return "Hola, "+ name + ". You are running a Gradle project";
     }
 }

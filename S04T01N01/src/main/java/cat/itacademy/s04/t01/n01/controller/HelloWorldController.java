@@ -15,9 +15,7 @@ public class HelloWorldController {
 
     @GetMapping({"/HelloWorld2", "/HelloWorld2/{name}"})
     public String sayHello2(@PathVariable(required = false) String name) {
-        if (name == null) {
-            name = "UNKNOWN";
-        }
+        name = (name == null) ? "UNKNOWN" : name;
         return "Hi, " + name + ". You are running a Maven project.";
     }
 }
